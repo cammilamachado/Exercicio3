@@ -1,9 +1,4 @@
---
 -- PostgreSQL database dump
---
-
--- Dumped from database version 13.6 (Ubuntu 13.6-0ubuntu0.21.10.1)
--- Dumped by pg_dump version 13.6 (Ubuntu 13.6-0ubuntu0.21.10.1)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -16,11 +11,11 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
---
--- Name: id-produto; Type: SEQUENCE; Schema: public; Owner: ti2cc
---
 
-CREATE SEQUENCE public."id-produto"
+-- Name: id-mercadoria; Type: SEQUENCE; Schema: public; Owner: ti2cc
+
+
+CREATE SEQUENCE public."id-mercadoria"
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -28,36 +23,36 @@ CREATE SEQUENCE public."id-produto"
     CACHE 1;
 
 
-ALTER TABLE public."id-produto" OWNER TO ti2cc;
+ALTER TABLE public."id-mercadoria" OWNER TO ti2cc;
 
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
 
---
--- Name: produto; Type: TABLE; Schema: public; Owner: ti2cc
---
 
-CREATE TABLE public.produto (
-    id integer DEFAULT nextval('public."id-produto"'::regclass) NOT NULL,
+-- Name: mercadoria; Type: TABLE; Schema: public; Owner: ti2cc
+
+
+CREATE TABLE public.mercadoria (
+    id integer DEFAULT nextval('public."id-mercadoria"'::regclass) NOT NULL,
     descricao text,
-    preco double precision,
+    valor double precision,
     quantidade integer,
-    datafabricacao timestamp without time zone,
-    datavalidade date
+    dataproducao timestamp without time zone,
+    validade date
 );
 
 
-ALTER TABLE public.produto OWNER TO ti2cc;
-
---
--- Name: produto produto_pkey; Type: CONSTRAINT; Schema: public; Owner: ti2cc
---
-
-ALTER TABLE ONLY public.produto
-    ADD CONSTRAINT produto_pkey PRIMARY KEY (id);
+ALTER TABLE public.mercadoria OWNER TO ti2cc;
 
 
---
+-- Name: mercadoria mercadoria_pkey; Type: CONSTRAINT; Schema: public; Owner: ti2cc
+
+
+ALTER TABLE ONLY public.mercadoria
+    ADD CONSTRAINT mercadoria_pkey PRIMARY KEY (id);
+
+
+
 -- PostgreSQL database dump complete
---    
+  
