@@ -101,8 +101,7 @@ public class MercadoriaService {
         } else if (tipo == FORM_DETAIL) {
             umMercadoria += "\t<table width=\"80%\" bgcolor=\"#f3f3f3\" align=\"center\">";
             umMercadoria += "\t\t<tr>";
-            umMercadoria += "\t\t\t<td colspan=\"3\" align=\"left\"><font size=\"+2\"><b>&nbsp;&nbsp;&nbsp;Detalhar Mercadoria (ID "
-                    + mercadoria.getID() + ")</b></font></td>";
+            umMercadoria += "\t\t\t<td colspan=\"3\" align=\"left\"><font size=\"+2\"><b>&nbsp;&nbsp;&nbsp;Detalhar Mercadoria (ID " + mercadoria.getID() + ")</b></font></td>";
             umMercadoria += "\t\t</tr>";
             umMercadoria += "\t\t<tr>";
             umMercadoria += "\t\t\t<td colspan=\"3\" align=\"left\">&nbsp;</td>";
