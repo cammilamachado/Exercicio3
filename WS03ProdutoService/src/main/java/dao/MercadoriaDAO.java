@@ -28,8 +28,8 @@ public class MercadoriaDAO extends DAO {
                     + "VALUES ('" + mercadoria.getDescricao() + "', "
                     + mercadoria.getValor() + ", " + mercadoria.getQuantidade() + ", ?, ?);";
             PreparedStatement st = conexao.prepareStatement(sql);
-            st.setTimestamp(1, Timestamp.valueOf(mercadoria.getDataFabricacao()));
-            st.setDate(2, Date.valueOf(mercadoria.getDataValidade()));
+            st.setTimestamp(1, Timestamp.valueOf(mercadoria.getDataProducao()));
+            st.setDate(2, Date.valueOf(mercadoria.getValidade()));
             st.executeUpdate();
             st.close();
             status = true;
@@ -49,8 +49,8 @@ public class MercadoriaDAO extends DAO {
             if (rs.next()) {
                 mercadoria = new Mercadoria(rs.getInt("id"), rs.getString("descricao"), (float) rs.getDouble("valor"),
                         rs.getInt("quantidade"),
-                        rs.getTimestamp("datafabricacao").toLocalDateTime(),
-                        rs.getDate("datavalidade").toLocalDate());
+                        rs.getTimestamp("dataproducao").toLocalDateTime(),
+                        rs.getDate("validade").toLocalDate());
             }
             st.close();
         } catch (Exception e) {
@@ -85,8 +85,8 @@ public class MercadoriaDAO extends DAO {
             while (rs.next()) {
                 Mercadoria p = new Mercadoria(rs.getInt("id"), rs.getString("descricao"), (float) rs.getDouble("valor"),
                         rs.getInt("quantidade"),
-                        rs.getTimestamp("datafabricacao").toLocalDateTime(),
-                        rs.getDate("datavalidade").toLocalDate());
+                        rs.getTimestamp("dataproducao").toLocalDateTime(),
+                        rs.getDate("validade").toLocalDate());
                 mercadorias.add(p);
             }
             st.close();
@@ -102,11 +102,11 @@ public class MercadoriaDAO extends DAO {
             String sql = "UPDATE mercadoria SET descricao = '" + mercadoria.getDescricao() + "', "
                     + "valor = " + mercadoria.getValor() + ", "
                     + "quantidade = " + mercadoria.getQuantidade() + ","
-                    + "datafabricacao = ?, "
-                    + "datavalidade = ? WHERE id = " + mercadoria.getID();
+                    + "dataproducao = ?, "
+                    + "validade = ? WHERE id = " + mercadoria.getID();
             PreparedStatement st = conexao.prepareStatement(sql);
-            st.setTimestamp(1, Timestamp.valueOf(mercadoria.getDataFabricacao()));
-            st.setDate(2, Date.valueOf(mercadoria.getDataValidade()));
+            st.setTimestamp(1, Timestamp.valueOf(mercadoria.getDataProducao()));
+            st.setDate(2, Date.valueOf(mercadoria.getValidade()));
             st.executeUpdate();
             st.close();
             status = true;
