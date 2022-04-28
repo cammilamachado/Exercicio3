@@ -36,10 +36,10 @@ SET default_table_access_method = heap;
 CREATE TABLE public.mercadoria (
     id integer DEFAULT nextval('public."id-mercadoria"'::regclass) NOT NULL,
     descricao text,
-    preco double precision,
+    valor double precision,
     quantidade integer,
-    datafabricacao timestamp without time zone,
-    datavalidade date
+    dataproducao timestamp without time zone,
+    validade date
 );
 
 
