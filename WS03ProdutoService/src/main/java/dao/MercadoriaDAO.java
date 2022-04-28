@@ -24,7 +24,7 @@ public class MercadoriaDAO extends DAO {
     public boolean insert(Mercadoria mercadoria) {
         boolean status = false;
         try {
-            String sql = "INSERT INTO mercadoria (descricao, valor, quantidade, datafabricacao, datavalidade) "
+            String sql = "INSERT INTO mercadoria (descricao, valor, quantidade, dataproducao, validade) "
                     + "VALUES ('" + mercadoria.getDescricao() + "', "
                     + mercadoria.getValor() + ", " + mercadoria.getQuantidade() + ", ?, ?);";
             PreparedStatement st = conexao.prepareStatement(sql);
